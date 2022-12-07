@@ -35,7 +35,7 @@ def main():
             return
 
         # If the message starts with $csv_sort and has an attachment, attempt to sort.
-        if message.content.startswith('$csv_sort') and len(message.attachments) == 0:
+        if message.content.startswith('$csv_sort') and not len(message.attachments) == 0:
             # Save file (temporary - will be deleted when process completes)
             filepath = f"./files/{message.id}.csv"
             await message.attachments[0].save(fp=filepath)
